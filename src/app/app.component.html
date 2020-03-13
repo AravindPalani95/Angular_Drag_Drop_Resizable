@@ -1,0 +1,39 @@
+<div class="dashboard_menu">
+    <p class="dashboard_text">Dashboard</p>
+    <div class="addchart_panel">
+        <button class="addchart_btn"(click)="addItem()">+ Add Chart</button>    
+    </div>
+</div>
+
+<div class="gridster_panel">
+  <gridster [options]="options">
+    <gridster-item [item]="item" *ngFor="let item of dashboard;let i=index">
+      <div class="header_panel">
+        <div class="header_panel_table">
+          <div class="chart_title">Chart Title - {{i+1}}</div>
+          <p class="chart_close" (mousedown)="removeItem(item)">X</p>
+        </div>
+    </div>
+      <div *ngIf="item.widget == 'bar'" class="widget_panel">
+          <app-widget-barchart [id]="item.widget + i"></app-widget-barchart>
+      </div>
+      <div *ngIf="item.widget == 'pie'" class="widget_panel">
+          <app-widget-piechart [id]="item.widget + i"></app-widget-piechart>
+      </div>
+      <div *ngIf="item.widget == 'line'" class="widget_panel">
+          <app-widget-line [id]="item.widget + i"></app-widget-line>
+      </div>
+      <div *ngIf="item.widget == 'donut'" class="widget_panel">
+          <app-widget-radarchart [id]="item.widget + i"></app-widget-radarchart>
+      </div>
+      <div *ngIf="item.widget == 'area'" class="widget_panel">
+          <app-widget-areachart [id]="item.widget + i"></app-widget-areachart>
+      </div>
+      <div *ngIf="item.widget == 'kpi'" class="widget_panel">
+            <app-widget-kpi [count]="dashboard.length"></app-widget-kpi>
+        </div>
+    </gridster-item>
+  </gridster>
+
+</div>
+

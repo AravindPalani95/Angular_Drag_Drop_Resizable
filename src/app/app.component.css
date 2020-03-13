@@ -1,0 +1,129 @@
+.dashboard_menu
+{
+    height: 80px;
+    color:#b2b2b3; 
+    font-size: 40px;
+    font-family: roboto;
+    display: table;
+    padding-left: 10px;
+}
+
+.dashboard_text{
+    display:table-cell;
+    vertical-align: middle;
+    letter-spacing: 2px;
+}
+
+.addchart_panel
+{
+    display: table-cell;
+    width: 100%;
+}
+
+.addchart_btn{
+    width: 140px;
+    height: 35px;
+    background-color: #3bc5ff;
+    border: 1px solid #3bc5ff;
+    color:rgba(255,255,255,1); 
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: roboto;
+    float: right;
+    margin-right: 10px;
+    margin-top: 25px;
+    outline: none;
+    cursor: pointer;
+}
+
+.widget_panel{
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+.header_panel{
+    width: 100%;
+    font-family:roboto;
+    font-size:15px;
+    font-weight: 900;
+    color:#b2b2b3;
+}
+
+.header_panel_table{
+    height: 30px;
+    display: table;
+}
+
+.chart_close{
+    margin:0;
+    display: table-cell;
+    vertical-align: middle;
+    position:relative; 
+    width:100%; 
+    right:10px;
+    cursor:pointer
+}
+
+.chart_title{
+    margin:0;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 5px;
+    width: 100%;
+    letter-spacing: 2px;
+    font-size: 13.5px;
+}
+
+.gridster_panel{
+    margin-top:20px;
+}
+
+gridster{
+    min-height:100vh;
+    min-width:100%;
+    background-color: #161719;
+}
+
+gridster-item{
+    background-color: #2a2a2d;
+}
+
+gridster.fixed{
+    overflow: hidden;
+}
+
+gridster-item{
+    border: 1px solid rgba(0,0,0,0.3);
+}
+
+gridster /deep/ gridster-preview{
+    background-color:rgb(102, 163, 255,0.1);
+    border: 1px solid rgb(0, 102, 255,0.5);
+}
+
+@media only screen and (min-width: 600px) {
+    .dashboard_menu
+    {
+        height: 40px;
+        color:#b2b2b3; 
+        font-size: 20px;
+        font-family: roboto;
+        display: table;
+        padding-left: 10px;
+    }
+    .addchart_btn{
+        width: 80px;
+        height: 25px;
+        background-color: #3bc5ff;
+        border: 1px solid #3bc5ff;
+        color:rgba(255,255,255,1); 
+        border-radius: 4px;
+        font-size: 15px;
+        font-family: roboto;
+        float: right;
+        margin-right: 10px;
+        margin-top: 25px;
+        outline: none;
+        cursor: pointer;
+    }
+  }
