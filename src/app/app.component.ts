@@ -93,7 +93,7 @@ export class AppComponent implements OnInit{
   constructor() { }
   
   removeItem(event,item) {
-    event.stopPropogation();
+    event.stopPropagation();
     event.preventDefault();
     this.dashboard.splice(this.dashboard.indexOf(item), 1);
   }
