@@ -101,16 +101,16 @@ gridster /deep/ gridster-preview{
     border: 1px solid rgb(0, 102, 255,0.5);
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 320px) and (max-width: 600px) {
     .dashboard_menu
     {
         height: 40px;
         color:#b2b2b3; 
-        font-size: 20px;
+        font-size: 25px;
         font-family: roboto;
         display: table;
         padding-left: 10px;
-    }
+        }
     .addchart_btn{
         width: 80px;
         height: 25px;
@@ -118,11 +118,11 @@ gridster /deep/ gridster-preview{
         border: 1px solid #3bc5ff;
         color:rgba(255,255,255,1); 
         border-radius: 4px;
-        font-size: 15px;
+        font-size: 10px;
         font-family: roboto;
         float: right;
         margin-right: 10px;
-        margin-top: 25px;
+        margin-top: 10px;
         outline: none;
         cursor: pointer;
     }

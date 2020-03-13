@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {CompactType, DisplayGrid, Draggable, GridsterConfig, GridsterItem, GridType, PushDirections, Resizable} from 'angular-gridster2';
+import { fromEvent, Observable, Subscription } from "rxjs";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  host: { '(window:resize)': 'onResize($event)' }
 })
 export class AppComponent implements OnInit{
   
   options: GridsterConfig;
   dashboard: Array<GridsterItem>;
+
+  resizeObservable$: Observable<Event>;
+  resizeSubscription$: Subscription;
 
   ngOnInit(): void {
     this.options = {
@@ -33,7 +36,7 @@ export class AppComponent implements OnInit{
       defaultItemRows: 1,
       fixedColWidth: 145,
       fixedRowHeight: 145,
-      mobileBreakpoint : 640,
+      mobileBreakpoint : 600,
       keepFixedWidthInMobile: false,
       keepFixedHeightInMobile: true,
       pushItems: true,
@@ -80,11 +83,18 @@ export class AppComponent implements OnInit{
        {cols: 4, rows: 2, y: 0, x: 4,widget:"area"},
        {cols: 2, rows: 2, y: 4, x: 4,widget:"kpi"}
      ];
+
+     this.resizeObservable$ = fromEvent(window, 'resize')
+      this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
+        this.onResize(evt);
+      })
   }
  
   constructor() { }
   
-  removeItem(item) {
+  removeItem(event,item) {
+    event.stopPropogation();
+    event.preventDefault();
     this.dashboard.splice(this.dashboard.indexOf(item), 1);
   }
 
@@ -103,7 +113,7 @@ export class AppComponent implements OnInit{
 
 
   onResize(event) {
-    if(event.target.innerWidth <= 640)
+    if(event.target.screen.availWidth <= 640)
     {
       this.options.setGridSize = false;
       this.changedOptions();

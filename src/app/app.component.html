@@ -11,7 +11,7 @@
       <div class="header_panel">
         <div class="header_panel_table">
           <div class="chart_title">Chart Title - {{i+1}}</div>
-          <p class="chart_close" (mousedown)="removeItem(item)">X</p>
+          <p class="chart_close" (mousedown)="removeItem($event,item)">X</p>
         </div>
     </div>
       <div *ngIf="item.widget == 'bar'" class="widget_panel">
